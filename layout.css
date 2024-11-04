@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.header {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+.header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+.topnav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+.topnav a:last-child {
+  float: right;
+}
+
+/* Layout for content */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+.leftcolumn, .rightcolumn {
+  padding: 10px;
+}
+.leftcolumn {
+  flex: 70%;
+}
+.rightcolumn {
+  flex: 30%;
+}
+
+/* Card style */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Image styling */
+.fakeimg {
+  text-align: center;
+}
+
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #333;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leftcolumn, .rightcolumn {
+      flex: 100%;
+  }
+  .topnav a {
+      float: none;
+      width: 100%;
+      text-align: left;
+  }
+  .header h1 {
+      font-size: 20px;
+  }
+  .fakeimg img {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .topnav a {
+      padding: 12px;
+      text-align: center;
+  }
+  .header h1 {
+      font-size: 18px;
+  }
+  .footer h2 {
+      font-size: 16px;
+  }
+  .fakeimg img {
+      width: 100%; /* Make images take full width on mobile */
+  }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empat Lampu dengan Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .lampu-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Pusatkan elemen */
+            gap: 30px; /* Jarak antar elemen */
+            margin: 50px;
+        }
+        .lampu {
+            text-align: center;
+            padding: 100px;
+            border-radius: 10px;
+            width: 300px;
+        }
+       .bg-1 {
+            background-image: url('../image/rumput.jpg');
+            background-size: 100% 100%; /* Agar background menutupi seluruh elemen */
+            background-position: center; /* Posisikan di tengah */
+            background-repeat: no-repeat; /* Menghindari pengulangan gambar */
+       }
+
+       .bg-2 {
+            background-image: url('../image/rumput.jpg');
+            background-size: 100% 100%; /* Background akan ditampilkan sepenuhnya */
+            background-position: center;
+            background-repeat: no-repeat;
+}
+
+      .bg-3 {
+            background-image: url('../image/rumput.jpg');
+            background-size: 100% 100%; /* Background di-stretch agar sesuai dengan elemen */
+            background-position: center;
+            background-repeat: no-repeat;
+       }
+
+     .bg-4 {
+            background-image: url('../image/rumput.jpg');
+            background-size: 100% 100%; /* Background akan tetap pada ukuran aslinya */
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        img {
+            width: 100px;
+            height: 150px;
+        }
+        
+        /* Media queries untuk layar kecil seperti smartphone */
+        @media (max-width: 768px) {
+            .lampu {
+                width: 100%; /* Lebar elemen akan memenuhi layar pada perangkat kecil */
+                padding: 50px; /* Mengurangi padding pada perangkat kecil */
+            }
+            img {
+                width: 80px;
+                height: 120px;
+            }
+            .lampu-container {
+                margin: 20px;
+                gap: 20px; /* Mengurangi jarak antar elemen */
+            }
+        }
+
+        /* Media queries untuk layar yang sangat kecil seperti smartphone di mode portrait */
+        @media (max-width: 480px) {
+            .lampu {
+                padding: 30px; /* Lebih sedikit padding untuk layar yang sangat kecil */
+            }
+            img {
+                width: 60px;
+                height: 90px;
+            }
+            .lampu-container {
+                margin: 10px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center"> 
+        <button class="btn"><a href="tabel.html"> HOME</a></button> 
+        <button class="btn"><a href="layout.html"> LAYOUT</a></button> 
+        <div class="lampu-container">
+
+<div class="lampu-container">
+    <!-- Lampu 1 -->
+    <div class="lampu bg-1">
+        <p>Lampu 1</p>
+        <p id="countdown1">5</p>
+        <img id="myImage1" src="../image/pic_bullboff.jpg">
+        <br>
+        <button onclick="nyalakanLampu('myImage1', 'countdown1', 5)">ON</button>
+    </div>
+
+    <!-- Lampu 2 -->
+    <div class="lampu bg-2">
+        <p>Lampu 2</p>
+        <p id="countdown2">5</p>
+        <img id="myImage2" src="../image/pic_bullboff.jpg">
+        <br>
+        <button onclick="nyalakanLampu('myImage2', 'countdown2', 5)">ON</button>
+    </div>
+
+    <!-- Lampu 3 -->
+    <div class="lampu bg-3">
+        <p>Lampu 3</p>
+        <p id="countdown3">5</p>
+        <img id="myImage3" src="../image/pic_bullboff.jpg">
+        <br>
+        <button onclick="nyalakanLampu('myImage3', 'countdown3', 5)">ON</button>
+    </div>
+
+    <!-- Lampu 4 -->
+    <div class="lampu bg-4">
+        <p>Lampu 4</p>
+        <p id="countdown4">5</p>
+        <img id="myImage4" src="../image/pic_bullboff.jpg">
+        <br>
+        <button onclick="nyalakanLampu('myImage4', 'countdown4', 5)">ON</button>
+    </div>
+</div>
+
+<script>
+    function nyalakanLampu(lampuId, countdownId, timeLeft) {
+        document.getElementById(lampuId).src = '../image/pic_bullbon.jpg';
+        hitungMundur(lampuId, countdownId, timeLeft); // Mulai hitung mundur ketika lampu dinyalakan
+    }
+
+    function matikanLampu(id) {
+        document.getElementById(id).src = '../image/pic_bullboff.jpg';
+    }
+
+    // Hitung mundur untuk setiap lampu
+    function hitungMundur(lampuId, countdownId, timeLeft) {
+        const countdown = setInterval(function() {
+            document.getElementById(countdownId).innerHTML = timeLeft;
+            timeLeft -= 1;
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                document.getElementById(countdownId).innerHTML = "Waktu habis!";
+                document.getElementById(lampuId).src = '../image/pic_bullboff.jpg'; // Matikan lampu otomatis
+            }
+        }, 1000);
+    }
+</script>
+
+</body>
+</html>
